@@ -29,7 +29,9 @@ def preprocess(data, test_size):
     x_train, x_test, y_train, y_test = train_test_split(x,y,test_size = test_size) # Split in training and test set
     return x_train, x_test, y_train, y_test
 
-data = pd.read_csv("/Users/anineahlsand/iCloud Drive (arkiv)/Documents/Dokumenter/Documents/Skole/NTNU/Maskinlæring/Project/ML-Project/data/data.csv")
+data_dir = os.path.dirname(os.path.realpath(_file_))
+data_dir = os.path.dirname(data_dir) + "/data/data.csv"
+data = pd.read_csv(data_dir)
 x_train, x_test, y_train, y_test = preprocess(data, 0.1)
 
 def create_model(loss, optimizer, learning_rate):
